@@ -1,7 +1,15 @@
 package com.wp.algorithm.sort;
-
+/**
+ * 排序算法实现
+ * @author wangpeng
+ *
+ */
 public class Sort {
 	
+	/**
+	 * 快速排序
+	 * @param array int[] 
+	 */
 	public static void QuickSort(int[] array) {
 		if (array.length == 0) {
 			return ;
