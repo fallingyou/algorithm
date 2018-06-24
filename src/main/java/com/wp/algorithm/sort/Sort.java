@@ -17,7 +17,7 @@ public class Sort {
 		QuickSort(array, 0, array.length - 1);
 	}
 	
-	public static void QuickSort(int[] array, int start, int end) {
+	private static void QuickSort(int[] array, int start, int end) {
 		if (start >= end) {
 			return ;
 		}
