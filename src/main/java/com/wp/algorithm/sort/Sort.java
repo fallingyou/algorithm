@@ -10,14 +10,14 @@ public class Sort {
 	 * 快速排序
 	 * @param array int[] 
 	 */
-	public static void QuickSort(int[] array) {
+	public static void quickSort(int[] array) {
 		if (array.length == 0) {
 			return ;
 		}
-		QuickSort(array, 0, array.length - 1);
+		quickSort(array, 0, array.length - 1);
 	}
 	
-	private static void QuickSort(int[] array, int start, int end) {
+	private static void quickSort(int[] array, int start, int end) {
 		if (start >= end) {
 			return ;
 		}
@@ -35,15 +35,15 @@ public class Sort {
 			array[e] = array[s];
 		}
 		array[s] = tmp;
-		QuickSort(array, start, s-1);
-		QuickSort(array, e+1, end);
+		quickSort(array, start, s-1);
+		quickSort(array, e+1, end);
 		
 	}
 	/**
 	 * 冒泡排序
 	 * @param array int[]
 	 */
-	public static void BubbleSort(int[] array) {
+	public static void bubbleSort(int[] array) {
 		int length = array.length;
 		if (length == 0) {
 			return ;
@@ -56,6 +56,32 @@ public class Sort {
 					array[j + 1] = tmp;
 				}
 			}
+		}
+	}
+	
+	/**
+	 * 直接插入排序
+	 * @param array int[]
+	 */
+	public static void insertSort(int[] array) {
+		int length = array.length;
+		if (length == 0) {
+			return ;
+		}
+		for (int i = 1; i < length; i++) {
+			// 取哨兵
+			int key = array[i]; 
+			int j = i - 1;
+			if (key < array[j]) {
+				// 哨兵和已经有序的序列比较，并移动有序列中的元素
+				while (j >= 0 && key < array[j]) { 
+					array[j + 1] = array[j];
+					j--;
+				}
+				// 插入记录到正确位置
+				array[j + 1 ] = key;
+			}
+		
 		}
 	}
 	

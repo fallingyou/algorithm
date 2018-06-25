@@ -8,7 +8,7 @@ import com.wp.util.RandomUtil;
 public class SortTest {
 	
 	@Test
-	public void QuickSortTest() {
+	public void quickSortTest() {
 		
 		for (int i=0; i<100; i++) {
 			System.out.println("样例数据" + i);
@@ -17,7 +17,7 @@ public class SortTest {
 				System.out.print(j + " ");
 			}
 			System.out.println();
-			Sort.QuickSort(array);
+			Sort.quickSort(array);
 			for (int j : array) {
 				System.out.print(j + " ");
 			}
@@ -26,7 +26,7 @@ public class SortTest {
 		
 	}
 	@Test
-	public void BubbleSortTest() {
+	public void bubbleSortTest() {
 		for (int i=0; i<100; i++) {
 			System.out.println("样例数据" + i);
 			int[] array = RandomUtil.RandomIntArray(15);
@@ -34,7 +34,24 @@ public class SortTest {
 				System.out.print(j + " ");
 			}
 			System.out.println();
-			Sort.BubbleSort(array);
+			Sort.bubbleSort(array);
+			for (int j : array) {
+				System.out.print(j + " ");
+			}
+			System.out.println();
+		}
+	}
+	
+	@Test
+	public void insertSortTest() {
+		for (int i=0; i<100; i++) {
+			System.out.println("样例数据" + i);
+			int[] array = RandomUtil.RandomIntArray(15);
+			for (int j : array) {
+				System.out.print(j + " ");
+			}
+			System.out.println();
+			Sort.insertSort(array);
 			for (int j : array) {
 				System.out.print(j + " ");
 			}
