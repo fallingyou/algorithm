@@ -84,6 +84,30 @@ public class Sort {
 		
 		}
 	}
+	/**
+	 * 简单选择排序
+	 * @param array int[]
+	 */
+	public static void selectionSort(int[] array) {
+		int length = array.length;
+		if (length == 0) {
+			return ;
+		}
+		for (int i = 0; i < length; i++) {
+			int key = array[i];
+			int maxIndex = i;
+			int j = i + 1;
+			while (j < length) {
+				if (array[j] < key) {
+					key = array[j];
+					maxIndex = j;
+				}
+				j++;
+			}
+			array[maxIndex] = array[i];
+			array[i] = key;
+		}
+	}
 	
 
 }
