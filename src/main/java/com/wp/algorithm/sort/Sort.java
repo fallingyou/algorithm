@@ -108,6 +108,61 @@ public class Sort {
 			array[i] = key;
 		}
 	}
+	public static void heapSort(int[] array) {
+		if (array.length == 0 || array.length == 1) {
+			return ;
+		}
+		//从最后一个非叶子节点进行调整，初始化堆
+		for (int i = array.length / 2 - 1; i >=0; i--) {
+			heapAdjust(array, i, array.length);
+		}
+		for (int j = array.length - 1; j > 0; j--) {
+			int tmp = array[j];
+			array[j] = array[0];
+			array[0] = tmp;
+			heapAdjust(array, 0, j);
+		}
+		
+	}
+	/**
+	 * 调整堆节点,使其成为大根堆
+	 * @param array int[]
+	 * @param s 节点编号
+	 * @param length
+	 */
+	private static void heapAdjust(int[] array, int s, int length) {
+		//左节点
+		int lchild = s * 2 + 1; 
+		//如果不存在左节点调整结束
+		if (lchild >= length) {
+			return ; 
+		}
+		//右节点
+		int rchild = s * 2 + 2; 
+		//最大节点的编号
+		int maxIndex = s;  
+		// 判断是否存在右节点
+		if (rchild < length) { 
+			maxIndex = array[rchild] > array[s] ? rchild : s;
+			maxIndex = array[lchild] > array[maxIndex] ? lchild : maxIndex;
+		} else {
+			maxIndex = array[lchild] > array[maxIndex] ? lchild : maxIndex;
+		}
+		if (maxIndex != s) {
+			int tmp = array[s];
+			array[s] = array[maxIndex];
+			array[maxIndex] = tmp;
+			heapAdjust(array, maxIndex, length);
+		}
+	}
+	public static void main(String[] args) {
+		int a[] = {5, 6, 1, 2, 8, 4};
+		heapSort(a);
+		for (int i : a) {
+			System.out.print(i + " ");
+			
+		}
+	}
 	
 
 }
