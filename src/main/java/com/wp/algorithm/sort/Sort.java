@@ -117,7 +117,8 @@ public class Sort {
 			return ;
 		}
 		//从最后一个非叶子节点进行调整，初始化堆
-		for (int i = array.length / 2 - 1; i >=0; i--) {
+		final int divisor = 2;
+		for (int i = array.length / divisor - 1; i >= 0; i--) {
 			heapAdjust(array, i, array.length);
 		}
 		for (int j = array.length - 1; j > 0; j--) {
@@ -157,14 +158,6 @@ public class Sort {
 			array[s] = array[maxIndex];
 			array[maxIndex] = tmp;
 			heapAdjust(array, maxIndex, length);
-		}
-	}
-	public static void main(String[] args) {
-		int a[] = {5, 6, 1, 2, 8, 4};
-		heapSort(a);
-		for (int i : a) {
-			System.out.print(i + " ");
-			
 		}
 	}
 	

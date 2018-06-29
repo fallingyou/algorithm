@@ -5,14 +5,23 @@ import org.junit.Test;
 import com.wp.algorithm.sort.Sort;
 import com.wp.util.RandomUtil;
 
+/**
+ * 
+ * @author wangpeng
+ *
+ */
 public class SortTest {
+	
+	private int length = 15;
+	
+	private int tesNum = 100;
 	
 	@Test
 	public void quickSortTest() {
 		
-		for (int i=0; i<100; i++) {
+		for (int i=0; i<tesNum; i++) {
 			System.out.println("样例数据" + i);
-			int[] array = RandomUtil.RandomIntArray(15);
+			int[] array = RandomUtil.randomIntArray(length);
 			for (int j : array) {
 				System.out.print(j + " ");
 			}
@@ -27,9 +36,9 @@ public class SortTest {
 	}
 	@Test
 	public void bubbleSortTest() {
-		for (int i=0; i<100; i++) {
+		for (int i=0; i<tesNum; i++) {
 			System.out.println("样例数据" + i);
-			int[] array = RandomUtil.RandomIntArray(15);
+			int[] array = RandomUtil.randomIntArray(length);
 			for (int j : array) {
 				System.out.print(j + " ");
 			}
@@ -44,9 +53,9 @@ public class SortTest {
 	
 	@Test
 	public void insertSortTest() {
-		for (int i=0; i<100; i++) {
+		for (int i=0; i<tesNum; i++) {
 			System.out.println("样例数据" + i);
-			int[] array = RandomUtil.RandomIntArray(15);
+			int[] array = RandomUtil.randomIntArray(length);
 			for (int j : array) {
 				System.out.print(j + " ");
 			}
@@ -62,9 +71,9 @@ public class SortTest {
 	@Test
 	public void selectionSortTest() {
 		
-		for (int i=0; i<100; i++) {
+		for (int i=0; i<tesNum; i++) {
 			System.out.println("样例数据" + i);
-			int[] array = RandomUtil.RandomIntArray(15);
+			int[] array = RandomUtil.randomIntArray(length);
 			for (int j : array) {
 				System.out.print(j + " ");
 			}
@@ -92,9 +101,9 @@ public class SortTest {
 	@Test
 	public void heapSortTest() {
 		
-		for (int i=0; i<100; i++) {
+		for (int i=0; i<tesNum; i++) {
 			System.out.println("样例数据" + i);
-			int[] array = RandomUtil.RandomIntArray(13);
+			int[] array = RandomUtil.randomIntArray(length);
 			for (int j : array) {
 				System.out.print(j + " ");
 			}
