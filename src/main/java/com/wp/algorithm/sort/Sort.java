@@ -108,6 +108,10 @@ public class Sort {
 			array[i] = key;
 		}
 	}
+	/**
+	 * 堆排序
+	 * @param array int[]
+	 */
 	public static void heapSort(int[] array) {
 		if (array.length == 0 || array.length == 1) {
 			return ;
