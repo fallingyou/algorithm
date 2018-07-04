@@ -71,6 +71,7 @@ public class Sort {
 		for (int i = 1; i < length; i++) {
 			// 取哨兵
 			int key = array[i]; 
+			//有序序列的最后一个元素
 			int j = i - 1;
 			if (key < array[j]) {
 				// 哨兵和已经有序的序列比较，并移动有序列中的元素
@@ -161,5 +162,71 @@ public class Sort {
 		}
 	}
 	
-
+	public static void mergeSort(int[] array) {
+		if (array.length <= 1) {
+			return ;
+		}
+		mergeSort(array, 1);
+		
+	}
+	
+	/**
+	 * 
+	 * @param array int[] 待排序数组
+	 * @param len 归并有序集合的长度
+	 */
+	public static void mergeSort(int[] array, int len) {
+		int size = array.length;
+		// 分组合并的数量
+		int groupCount = size / (len * 2);
+		if (groupCount == 0) {
+			return ;
+		}
+		// 分组剩余的元素个数
+		int remainder = size - (len * 2 * groupCount);
+		int i;
+		for (i = 0; i < groupCount; i++) {
+			int s = i * len * 2;
+			merge(array, s, s + len, s + len + len);
+		}
+		if (remainder != 0) {
+			merge(array, size - remainder - len * 2, size - remainder, size);
+		}
+		mergeSort(array, len * 2);
+	}
+	/**
+	 * 二路归并
+	 * @param array 待排序数组
+	 * @param s 第一个有序序列的起始位置
+	 * @param m 第二个有序序列的起始位置
+	 * @param e 第二个有序序列结束的位置
+	 */
+	private static void merge(int[] array, int s, int m, int e) {
+		int i = s;
+		int j = m;
+		int[] tmp = new int[e - s];
+		int k = 0;
+		while (i < m && j < e) {
+			if (array[i] < array[j]) {
+				tmp[k]  = array[i];
+				i++;
+				k++;
+			} else {
+				tmp[k] = array[j];
+				j++;
+				k++;
+			}
+		}
+		while (i < m) {
+			tmp[k] = array[i];
+			i++;
+			k++;
+		}
+		while (j < e) {
+			tmp[k] = array[j];
+			j++;
+			k++;
+		}
+		System.arraycopy(tmp, 0, array, s, k);
+	}
 }
